@@ -1,0 +1,37 @@
+Entidades.Fatura
+
+package entidades;
+
+public class Fatura {
+	private Double pagamento;
+	private Double imposto;
+
+	public Fatura() {
+	}
+
+	public Fatura(Double pagamento, Double imposto) {
+		this.pagamento = pagamento;
+		this.imposto = imposto;
+	}
+
+	public Double getPagamento() {
+		return pagamento;
+	}
+
+	public void setPagamentoBasico(Double pagamento) {
+		this.pagamento = pagamento;
+	}
+
+	public Double getImposto() {
+		return imposto;
+	}
+
+	public void setImposto(Double imposto) {
+		this.imposto = imposto;
+	}
+
+	public Double getPagamentoTotal() {
+		return getPagamento() + getImposto();
+	}
+}
+
