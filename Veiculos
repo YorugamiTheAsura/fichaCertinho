@@ -6,16 +6,21 @@ public abstract class Veiculos {
 	protected String marca;
 	protected Integer ano;
 	protected Double preco;
+	protected Double precoTotal;
 	
-	public Veiculos() {
-		
-	}
 	
-	public Veiculos(String placa, String marca, Integer ano, Double preco) {
+	public Veiculos(String placa, String marca, Integer ano, Double preco,Double precoTotal) {
 		this.placa = placa;
 		this.marca = marca;
 		this.ano = ano;
 		this.preco = preco;
+		this.precoTotal = precoTotal;
+	}
+
+
+
+	public Double getPrecoTotal() {
+		return precoTotal;
 	}
 
 	public String getPlaca() {
@@ -46,11 +51,7 @@ public abstract class Veiculos {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	}
 	
-	public abstract Double precocomtaxa();
 
 	@Override
 	public abstract String toString();
