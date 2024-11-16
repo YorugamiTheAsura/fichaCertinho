@@ -1,0 +1,22 @@
+package servico2;
+
+import entidades.Concessionaria;
+import entidades.Veiculos;
+
+public class ProcessoSeguro {
+
+	 private Seguro seguro;
+
+	 public ProcessoSeguro(Seguro seguro) {
+		    this.seguro = seguro;
+		}
+	 
+	public Double CalculoSeguroAnual(Double preco,Integer idade) {
+		
+		  Double taxaAnu = seguro.taxaseguroAnual(idade);
+		   
+		  return preco += preco*taxaAnu;	  
+	}
+
+	
+}
