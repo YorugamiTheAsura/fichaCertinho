@@ -1,0 +1,9 @@
+package servico;
+
+
+
+public interface Pagamento {
+
+	  double conversaomoeda(Double moeda );
+    double taxaImportacao(Double taxa);
+}
