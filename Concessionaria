@@ -1,0 +1,54 @@
+package entidades;
+
+import entidades.Veiculos;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Concessionaria {
+
+	List<Veiculos> veiculos = new ArrayList<>();
+	private Fatura fatura;
+
+	public Concessionaria(Fatura fatura) {
+		this.fatura = fatura;
+	}
+	
+
+	public Fatura getFatura() {
+		return fatura;
+	}
+
+	
+	public void setFatura(Fatura fatura) {
+		this.fatura = fatura;
+	}
+
+
+
+
+	public List<Veiculos> getVeiculos() {
+		return veiculos;
+	}
+
+	
+	public void setVeiculos(List<Veiculos> veiculos) {
+		this.veiculos = veiculos;
+	}
+	
+	
+	public void remVeiculo(String placa) {
+			
+		
+	}
+	
+	
+	//valor de todos os carros da concessionaria
+	
+	public double calFinal(){
+		Double total = 0.0;
+		for(Veiculos x: veiculos) {
+			total += x.getPreco();
+		}
+		return total;
+	}
+}
