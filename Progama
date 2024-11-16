@@ -58,8 +58,8 @@ public class Progama {
 	             
 	            Double precoTotal = 0.0;
 	            
+	            precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
 	            Carro carro = new Carro(placa, marca, ano, preco,precoTotal);
-	            precoTotal = processoSeguro.CalculoSeguroAnual(carro.getPreco(), ano);
 	            veiculos.add(carro);
 		  }
 		  
@@ -77,14 +77,19 @@ public class Progama {
 	            
 	            System.out.print("Preço: ");
 	            Double preco = sc.nextDouble();
-	            veiculos.add(new Moto(placa, marca, ano, preco));
+	          
+	            Double precoTotal = 0.0;
 	            
-	            Moto moto = new Moto(placa, marca, ano, preco);
-	            processoSeguro.CalculoSeguroAnual(moto.getPreco(), ano);
+	            precoTotal =processoSeguro.CalculoSeguroAnual(preco, ano);
+	            
+	            Moto moto = new Moto(placa, marca, ano, preco,precoTotal);
 	            veiculos.add(moto);
 		  }
 		  
-		      
+		      for(Veiculos x: veiculos) {
+		    	  System.out.print(x);
+		    	  System.out.println("-----------");
+		      }
 		  
 		  
 		  
