@@ -1,0 +1,24 @@
+package servico2;
+
+public class ServicoSeguroTokioMarine implements Seguro {
+
+	@Override
+	public Double taxaseguroAnual(Integer idade) {
+		
+		double x = 0;
+		
+	//quanto mais velho mais propicio a quebrar
+		
+		if(idade>20)x = 0.3;
+		
+		else if(idade<=20 && idade>10)x = 0.2;
+		
+		else if(idade>=10)x = 0.1;
+	
+		
+			return x;
+	}
+
+	
+	
+}
