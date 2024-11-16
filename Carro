@@ -2,20 +2,19 @@ package entidades;
 
 public class Carro extends Veiculos{
 	
-	public Carro(String placa, String marca, Integer ano, Double preco) {
-		super(placa,marca,ano,preco);
+	public Carro(String placa, String marca, Integer ano, Double preco,Double precoTotal) {
+		super(placa,marca,ano,preco,precoTotal);
 	}
 
-	@Override
-	public Double precocomtaxa() {
-		return preco+=preco*0.25;
-	}
+	
 	
 	@Override
 	public String toString() {
 		return " Carro - Placa :" + placa + 
 				" - marca : " + marca + 
 				", - ano : " + ano + 
-				", - preco : " + preco + "";
+				", - preco bruto : " + preco + 
+				",- preco total  : "+ precoTotal;
+				
 	}
 }
