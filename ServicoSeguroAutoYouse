@@ -1,0 +1,18 @@
+package servico2;
+
+public class ServicoSeguroAutoYouse implements Seguro {
+
+	@Override
+	public Double taxaseguroAnual(Integer idade) {
+	   //taxa fixa
+		return 0.25;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+}
