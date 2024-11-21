@@ -1,20 +1,27 @@
 package entidades;
 
-public class Carro extends Veiculos{
-	
-	public Carro(String placa, String marca, Integer ano, Double preco,Double precoTotal) {
-		super(placa,marca,ano,preco,precoTotal);
+public class Carro extends Veiculos {
+
+	private Integer portas;
+
+	public Carro(String placa, String marca, Integer ano, Double preco, Double precoTotal, String modelo,
+			Integer portas) {
+		super(placa, marca, ano, preco, precoTotal, modelo);
+		this.portas = portas;
 	}
 
-	
-	
+	public Integer getPortas() {
+		return portas;
+	}
+
+	public void setPortas(Integer portas) {
+		this.portas = portas;
+	}
+
 	@Override
 	public String toString() {
-		return " Carro - Placa :" + placa + 
-				" - marca : " + marca + 
-				", - ano : " + ano + 
-				", - preco bruto : " + preco + 
-				",- preco total  : "+ precoTotal;
-				
+		return " Carro - Placa :" + placa + " - marca : " + marca + ", - ano : " + ano + ", - preco bruto : " + preco
+				+ ",- preco total  : " + precoTotal;
+
 	}
 }
