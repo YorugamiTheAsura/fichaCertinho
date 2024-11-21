@@ -1,24 +1,36 @@
 package entidades;
 
 public abstract class Veiculos {
-	
+
 	protected String placa;
 	protected String marca;
 	protected Integer ano;
 	protected Double preco;
 	protected Double precoTotal;
+	protected String modelo;
 	
-	
-	public Veiculos(String placa, String marca, Integer ano, Double preco,Double precoTotal) {
+	public Veiculos(String placa, String marca, Integer ano, Double preco,Double precoTotal,String modelo) {
 		this.placa = placa;
 		this.marca = marca;
 		this.ano = ano;
 		this.preco = preco;
 		this.precoTotal = precoTotal;
+		this.modelo= modelo;
 	}
 
+	
 
 
+	// Getter e Setter para o modelo
+	public String getModelo() {
+	    return modelo;
+	}
+
+	public void setModelo(String modelo) {
+	    this.modelo = modelo;
+	}
+	
+	
 	public Double getPrecoTotal() {
 		return precoTotal;
 	}
@@ -51,13 +63,11 @@ public abstract class Veiculos {
 		return preco;
 	}
 
-	
 
 	@Override
 	public abstract String toString();
 		
-
 	
 	
-
+	
 }
