@@ -1,54 +1,66 @@
 package entidades;
 
-import entidades.Veiculos;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.List;
+import entidades.Veiculos;
 
 public class Concessionaria {
-
 	List<Veiculos> veiculos = new ArrayList<>();
-	private Fatura fatura;
 
-	public Concessionaria(Fatura fatura) {
-		this.fatura = fatura;
+	public Concessionaria(List<Veiculos> veiculos) {
+		this.veiculos = veiculos;
 	}
-	
-
-	public Fatura getFatura() {
-		return fatura;
-	}
-
-	
-	public void setFatura(Fatura fatura) {
-		this.fatura = fatura;
-	}
-
-
-
 
 	public List<Veiculos> getVeiculos() {
 		return veiculos;
 	}
 
-	
 	public void setVeiculos(List<Veiculos> veiculos) {
 		this.veiculos = veiculos;
 	}
-	
-	
-	public void remVeiculo(String placa) {
-			
-		
+
+	public void addVeiculo(Veiculos veiculo) {
+		veiculos.add(veiculo);
 	}
-	
-	
-	//valor de todos os carros da concessionaria
-	
-	public double calFinal(){
+
+	public void removeVeiculo(Veiculos veiculo) {
+		veiculos.remove(veiculo);
+	}
+
+	// valor de todos os carros da concessionaria
+
+	public void ListarVeiculosPlaca(ArrayList<Veiculos> veiculos) {
+
+		Collections.sort(veiculos, Comparator.comparing(Veiculos::getPlaca));
+
+		for (Veiculos x : veiculos) {
+
+			System.out.println(x);
+
+		}
+
+	}
+
+	public double calFinal() {
 		Double total = 0.0;
-		for(Veiculos x: veiculos) {
+		for (Veiculos x : veiculos) {
 			total += x.getPreco();
 		}
 		return total;
+	}
+
+	public void arrumarLista() {
+		for (int i = 0; i < veiculos.size() - 1; i++) {
+			for (int j = 0; j < veiculos.size(); i++) {
+				if (veiculos.get(i).getAno() > veiculos.get(j).getAno()) {
+					Veiculos temp = veiculos.get(i);
+					veiculos.set(i, veiculos.get(j));
+					veiculos.set(j, temp);
+				}
+
+			}
+		}
 	}
 }
