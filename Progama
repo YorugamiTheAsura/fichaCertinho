@@ -7,92 +7,106 @@ import java.util.Scanner;
 import entidades.Carro;
 import entidades.Moto;
 import entidades.Veiculos;
+import entidades.Concessionaria;
 
-import servico2.ProcessoSeguro;
-import servico2.ServicoSeguroTokioMarine;
+import servicos.ProcessoSeguro;
+import servicos.ServicoSeguroTokioMarine;
 
 public class Progama {
 
 	public static void main(String[] args) {
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		Integer carrosqtd, motosqtd, esc;
-		
-		 ProcessoSeguro processoSeguro = null;
-		
-		List<Veiculos> veiculos = new ArrayList<>();
-		
+
+		ProcessoSeguro processoSeguro = null;
+
+		ArrayList<Veiculos> veiculos = new ArrayList<>();
+		Concessionaria conse = new Concessionaria(veiculos);
 		
 		System.out.println("*****Concessionaria*****");
-		
+
 		System.out.println("Quantos carros gostaria de adicionar? ");
-		 carrosqtd = sc.nextInt();
-		 
-		 System.out.println("Quantas motos gostaria de adicionar? ");
-		  motosqtd = sc.nextInt();
-		 
-		  System.out.println("Qual tipo de seguro gostaria de usar? ");
-		  System.out.println("1-TokioMarine");
-		  
-		  esc = sc.nextInt();
-		  
-		  if (esc == 1) {
-			  processoSeguro = new ProcessoSeguro(new ServicoSeguroTokioMarine());
-	        }
-		  
-		  
-		  for (int i = 0; i < carrosqtd; i++) {
-	            System.out.println("Digite os dados do carro " + (i+1) + ":");
-	            
-	            System.out.print("Placa: ");
-	            String placa = sc.next();
-	            
-	            System.out.print("Marca: ");
-	            String marca = sc.next();
-	            
-	            System.out.print("Ano: ");
-	            Integer ano = sc.nextInt();
-	            
-	            System.out.print("Preço: ");
-	            Double preco = sc.nextDouble();
-	             
-	            Double precoTotal = 0.0;
-	            
-	            precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
-	            Carro carro = new Carro(placa, marca, ano, preco,precoTotal);
-	            veiculos.add(carro);
-		  }
-		  
-		  for (int i = 0; i < motosqtd; i++) {
-	            System.out.println("Digite os dados da moto " + (i+1) + ":");
-	            
-	            System.out.print("Placa: ");
-	            String placa = sc.next();
-	            
-	            System.out.print("Marca: ");
-	            String marca = sc.next();
-	            
-	            System.out.print("Ano: ");
-	            Integer ano = sc.nextInt();
-	            
-	            System.out.print("Preço: ");
-	            Double preco = sc.nextDouble();
-	          
-	            Double precoTotal = 0.0;
-	            
-	            precoTotal =processoSeguro.CalculoSeguroAnual(preco, ano);
-	            
-	            Moto moto = new Moto(placa, marca, ano, preco,precoTotal);
-	            veiculos.add(moto);
-		  }
-		  
-		      for(Veiculos x: veiculos) {
-		    	  System.out.print(x);
-		    	  System.out.println("-----------");
-		      }
-		  
-		  
-		  
+		carrosqtd = sc.nextInt();
+
+		System.out.println("Quantas motos gostaria de adicionar? ");
+		motosqtd = sc.nextInt();
+
+		System.out.println("Qual tipo de seguro gostaria de usar? ");
+		System.out.println("1-TokioMarine");
+
+		esc = sc.nextInt();
+
+		if (esc == 1) {
+			processoSeguro = new ProcessoSeguro(new ServicoSeguroTokioMarine());
+		}
+
+		for (int i = 0; i < carrosqtd; i++) {
+			System.out.println("Digite os dados do carro " + (i + 1) + ":");
+
+			System.out.print("Placa: ");
+			String placa = sc.next();
+
+			System.out.print("Marca: ");
+			String marca = sc.next();
+
+			System.out.print("Ano: ");
+			Integer ano = sc.nextInt();
+
+			System.out.print("Preço: ");
+			Double preco = sc.nextDouble();
+
+			Double precoTotal = 0.0;
+
+			System.out.print("Portas: ");
+			Integer portas = sc.nextInt();
+
+			System.out.print("Modelo: ");
+			String modelo = sc.nextLine();
+
+			precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
+			Carro carro = new Carro(placa, marca, ano, preco, precoTotal, modelo, portas);
+
+			veiculos.add(carro);
+		}
+
+		for (int i = 0; i < motosqtd; i++) {
+			System.out.println("Digite os dados da moto " + (i + 1) + ":");
+
+			System.out.print("Placa: ");
+			String placa = sc.next();
+
+			System.out.print("Marca: ");
+			String marca = sc.next();
+
+			System.out.print("Ano: ");
+			Integer ano = sc.nextInt();
+
+			System.out.print("Preço: ");
+			Double preco = sc.nextDouble();
+
+			System.out.print("Cilindradas: ");
+			Integer cilindradas = sc.nextInt();
+
+			System.out.print("Modelo: ");
+			String modelo = sc.nextLine();
+
+			Double precoTotal = 0.0;
+
+			precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
+
+			Moto moto = new Moto(placa, marca, ano, preco, precoTotal, modelo, cilindradas);
+			veiculos.add(moto);
+		}
+
+		for (Veiculos x : veiculos) {
+			System.out.print(x);
+			System.out.println("-----------");
+		}
+
+		conse.ListarVeiculosPlaca(veiculos);
+
 		sc.close();
 	}
 
