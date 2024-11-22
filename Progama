@@ -1,113 +1,156 @@
 package aplicacao;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 import entidades.Carro;
 import entidades.Moto;
 import entidades.Veiculos;
 import entidades.Concessionaria;
+import servico2.ProcessoSeguro;
+import servico2.ServicoSeguroTokioMarine;
 
-import servicos.ProcessoSeguro;
-import servicos.ServicoSeguroTokioMarine;
+public class Programa {
 
-public class Progama {
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Veiculos> veiculos = new ArrayList<>();
+        Concessionaria conse = new Concessionaria(veiculos);
 
-		Scanner sc = new Scanner(System.in);
+        ProcessoSeguro processoSeguro = null;
 
-		Integer carrosqtd, motosqtd, esc;
+        // Inicialização do serviço de seguro (somente um tipo por simplicidade)
+        processoSeguro = new ProcessoSeguro(new ServicoSeguroTokioMarine());
 
-		ProcessoSeguro processoSeguro = null;
+        int opcao;
 
-		ArrayList<Veiculos> veiculos = new ArrayList<>();
-		Concessionaria conse = new Concessionaria(veiculos);
-		
-		System.out.println("*****Concessionaria*****");
+        do {
+            System.out.println("** Concessionária **");
+            System.out.println("1 - Incluir veículo");
+            System.out.println("2 - Alterar veículo");
+            System.out.println("3 - Excluir veículo");
+            System.out.println("4 - Listar veículos");
+            System.out.println("5 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
 
-		System.out.println("Quantos carros gostaria de adicionar? ");
-		carrosqtd = sc.nextInt();
+            switch (opcao) {
+                
+            
+            case 1:
+                  
+                	 System.out.println("Incluir veículo:");
+                     System.out.println("1 - Carro");
+                     System.out.println("2 - Moto");
+                     System.out.print("Escolha o tipo de veículo: ");
+                     int tipo = sc.nextInt();
 
-		System.out.println("Quantas motos gostaria de adicionar? ");
-		motosqtd = sc.nextInt();
+                     System.out.print("Placa: ");
+                     String placa = sc.next();
 
-		System.out.println("Qual tipo de seguro gostaria de usar? ");
-		System.out.println("1-TokioMarine");
+                     System.out.print("Marca: ");
+                     String marca = sc.next();
 
-		esc = sc.nextInt();
+                     System.out.print("Ano: ");
+                     int ano = sc.nextInt();
 
-		if (esc == 1) {
-			processoSeguro = new ProcessoSeguro(new ServicoSeguroTokioMarine());
-		}
+                     System.out.print("Preço: ");
+                     double preco = sc.nextDouble();
 
-		for (int i = 0; i < carrosqtd; i++) {
-			System.out.println("Digite os dados do carro " + (i + 1) + ":");
+                     double precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
 
-			System.out.print("Placa: ");
-			String placa = sc.next();
+                     if (tipo == 1) {
+                         System.out.print("Portas: ");
+                         int portas = sc.nextInt();
 
-			System.out.print("Marca: ");
-			String marca = sc.next();
+                         System.out.print("Modelo: ");
+                         sc.nextLine(); // Consumir quebra de linha
+                         String modelo = sc.nextLine();
 
-			System.out.print("Ano: ");
-			Integer ano = sc.nextInt();
+                         Carro carro = new Carro(placa, marca, ano, preco, precoTotal, modelo, portas);
+                         veiculos.add(carro);
 
-			System.out.print("Preço: ");
-			Double preco = sc.nextDouble();
+                     } else if (tipo == 2) {
+                         System.out.print("Cilindradas: ");
+                         int cilindradas = sc.nextInt();
 
-			Double precoTotal = 0.0;
+                         System.out.print("Modelo: ");
+                         sc.nextLine(); // Consumir quebra de linha
+                         String modelo = sc.nextLine();
 
-			System.out.print("Portas: ");
-			Integer portas = sc.nextInt();
+                         Moto moto = new Moto(placa, marca, ano, preco, precoTotal, modelo, cilindradas);
+                         veiculos.add(moto);
 
-			System.out.print("Modelo: ");
-			String modelo = sc.nextLine();
+                     } else {
+                         System.out.println("Tipo inválido!");
+                     }
 
-			precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
-			Carro carro = new Carro(placa, marca, ano, preco, precoTotal, modelo, portas);
+                     System.out.println("Veículo incluído com sucesso!");
+                	
+                    break;
 
-			veiculos.add(carro);
-		}
+                case 2:
+                	
+                	
+                       //processo de alterar veiculo
+                    
+                    
+                    
+                    break;
 
-		for (int i = 0; i < motosqtd; i++) {
-			System.out.println("Digite os dados da moto " + (i + 1) + ":");
+                case 3:
+                   
+                	System.out.print("Digite a placa do veiculo a ser excluido:");
+                	 sc.nextLine(); // Consumir quebra de linha
+                     placa = sc.nextLine();
 
-			System.out.print("Placa: ");
-			String placa = sc.next();
+                    Veiculos veiculo = conse.buscarVeiculoPorPlaca(placa);
 
-			System.out.print("Marca: ");
-			String marca = sc.next();
+                    if (veiculo != null) {
+                        veiculos.remove(veiculo);
+                        System.out.println("Veículo excluído com sucesso!");
+                    } else {
+                        System.out.println("Veículo não encontrado.");
+                    }
+                	
+                	
+                	
+                    break;
 
-			System.out.print("Ano: ");
-			Integer ano = sc.nextInt();
+                case 4:
+                	
+                	  System.out.println("Digite o numero para qual forma gostaria de imprimir e ordenar a concessionaria: ");
+                	  System.out.println("1-Ordenadas por ordem alfabetica das placas: ");
+                	  System.out.println("2-Ordenadas por carros primeiro depois motos: ");
+                	  int opcaoImpressao = sc.nextInt();
+                	
+                	  if(opcaoImpressao ==1 ) {
+                         
+                         conse.ListarVeiculosPlaca(veiculos);
+                	  }
+                	  
+                	  if(opcaoImpressao ==2) {
+                		  conse.ListarVeiculosSeparados();
+                	  }
+                	  
+                    break;
 
-			System.out.print("Preço: ");
-			Double preco = sc.nextDouble();
+                case 5:
+                    System.out.println("Encerrando o programa...");
+                    break;
 
-			System.out.print("Cilindradas: ");
-			Integer cilindradas = sc.nextInt();
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+            }
+        } while (opcao != 5);
 
-			System.out.print("Modelo: ");
-			String modelo = sc.nextLine();
-
-			Double precoTotal = 0.0;
-
-			precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
-
-			Moto moto = new Moto(placa, marca, ano, preco, precoTotal, modelo, cilindradas);
-			veiculos.add(moto);
-		}
-
-		for (Veiculos x : veiculos) {
-			System.out.print(x);
-			System.out.println("-----------");
-		}
-
-		conse.ListarVeiculosPlaca(veiculos);
-
-		sc.close();
-	}
-
+        sc.close();
+    }
 }
+      
+
+	
+   
+
+    
+
