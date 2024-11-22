@@ -1,12 +1,13 @@
 package entidades;
 
+import entidades.Veiculos;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.ArrayList;
 import java.util.List;
-import entidades.Veiculos;
 
 public class Concessionaria {
+
 	List<Veiculos> veiculos = new ArrayList<>();
 
 	public Concessionaria(List<Veiculos> veiculos) {
@@ -31,6 +32,36 @@ public class Concessionaria {
 
 	// valor de todos os carros da concessionaria
 
+	
+	
+	public void ImprimirVeiculos() {
+		
+		for (Veiculos x : veiculos) {
+			
+			System.out.println(x);
+            
+		}
+		
+		
+	}
+	
+	public void ListarVeiculosSeparados() {
+		veiculos.sort((v1, v2) -> {
+			
+		    if (v1 instanceof Carro && v2 instanceof Moto) {
+		        return -1; // Indica que v1 (Carro) deve vir antes de v2 (Moto)
+		    } else if (v1 instanceof Moto && v2 instanceof Carro) {
+		        return 1; // Indica que v1 (Moto) deve vir depois de v2 (Carro)
+		    }
+		    return 0; // Indica que a ordem relativa não muda
+		    
+		});
+	}
+	
+	
+	
+	
+	
 	public void ListarVeiculosPlaca(ArrayList<Veiculos> veiculos) {
 
 		Collections.sort(veiculos, Comparator.comparing(Veiculos::getPlaca));
@@ -42,25 +73,17 @@ public class Concessionaria {
 		}
 
 	}
-
-	public double calFinal() {
-		Double total = 0.0;
-		for (Veiculos x : veiculos) {
-			total += x.getPreco();
-		}
-		return total;
-	}
-
-	public void arrumarLista() {
-		for (int i = 0; i < veiculos.size() - 1; i++) {
-			for (int j = 0; j < veiculos.size(); i++) {
-				if (veiculos.get(i).getAno() > veiculos.get(j).getAno()) {
-					Veiculos temp = veiculos.get(i);
-					veiculos.set(i, veiculos.get(j));
-					veiculos.set(j, temp);
-				}
-
-			}
-		}
-	}
+	
+	
+	
+	public  Veiculos buscarVeiculoPorPlaca( String placa) {
+        for (Veiculos veiculo : veiculos) {
+            if (veiculo.getPlaca().equalsIgnoreCase(placa)) {
+                return veiculo;
+            }
+        }
+        return null;
+    }
 }
+
+
