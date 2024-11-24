@@ -1,0 +1,14 @@
+package servico2;
+
+public class SemSeguro implements Seguro {
+
+	@Override
+	public Double taxaseguroAnual(Integer idade) {
+		return 0.0;
+	}
+
+	
+	
+	
+	
+}
