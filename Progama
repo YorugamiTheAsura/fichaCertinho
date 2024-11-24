@@ -114,11 +114,84 @@ public class Programa {
 
                 case 2:
                 	
-                	
-                       //processo de alterar veiculo
+                	System.out.print("Digite a placa do veiculo a ser alterado:");
+               	    sc.nextLine(); 
+                    placa = sc.nextLine();
+                    
+                    Veiculos veiculo = conse.buscarVeiculoPorPlaca(placa);
+                    
+                    if(veiculo == null) {break;}
+                    else {
+                    	
                     
                     
+                    System.out.println("Escolha o  novo seguro do seu Veiculo (preco anual): ");
+                    System.out.println("1-Seguro Tokyo Marine");
+                    System.out.println("2-Seguro Auto Youse"); 
+                    System.out.println("3-Sem Seguro");
+                    int tiposeg1 = sc.nextInt();
                     
+                    System.out.println("Digite a nova marca: ");
+                    String marca1 = sc.next();
+                    
+                    System.out.println("Digite o novo ano: ");
+                    int ano1 = sc.nextInt();
+                    
+                    System.out.print("Digite o novo preço:  ");
+                    double preco1 = sc.nextDouble();
+                    double precoTota2 = 0;
+                    
+                    if(tiposeg1 ==1) {
+                        processoSeguro = new ProcessoSeguro(new ServicoSeguroTokioMarine());
+                         precoTota2 = processoSeguro.CalculoSeguroAnual(preco1, ano1);
+                        }
+                        
+                        else if(tiposeg1 ==2) {
+                            processoSeguro = new ProcessoSeguro(new ServicoSeguroAutoYouse());
+                             precoTota2 = processoSeguro.CalculoSeguroAnual(preco1, ano1);
+                            }
+                        
+                        else if(tiposeg1 ==3) {
+                       	 processoSeguro = new ProcessoSeguro(new SemSeguro());
+                            precoTota2 = processoSeguro.CalculoSeguroAnual(preco1, ano1);
+                        }
+                    
+                    if (veiculo instanceof Carro) {
+                    	 System.out.print("Quantas Portas: ");
+                         int portas = sc.nextInt();
+
+                         System.out.print("Modelo novo: ");
+                         sc.nextLine();
+                         String modelo = sc.nextLine();
+
+                    	  Carro carro = (Carro) veiculo;
+                    	  carro.setPlaca(placa);
+                          carro.setMarca(marca1);
+                          carro.setAno(ano1);
+                          carro.setPreco(preco1);
+                          carro.setPrecoTotal(precoTota2);
+                          carro.setPortas(portas);
+                          carro.setModelo(modelo);
+                          System.out.println("Dados Atualizados");
+                    }
+                     else if (veiculo instanceof Moto) {
+                    	 System.out.print("Quantas Cilindradas: ");
+                         int cilindradas = sc.nextInt();
+
+                         System.out.print("Modelo novo: ");
+                         sc.nextLine();
+                         String modelo = sc.nextLine();
+                         
+                    	 Moto moto = (Moto) veiculo;
+                         moto.setMarca(marca1);
+                         moto.setAno(ano1);
+                         moto.setPreco(preco1);
+                         moto.setPrecoTotal(precoTota2);
+                         moto.setCilindradas(cilindradas);
+                         moto.setModelo(modelo);
+                         System.out.println("Dados Atualizados");
+                     }
+                    }
                     break;
 
                 case 3:
@@ -127,10 +200,10 @@ public class Programa {
                 	 sc.nextLine(); // Consumir quebra de linha
                      placa = sc.nextLine();
 
-                    Veiculos veiculo = conse.buscarVeiculoPorPlaca(placa);
+                    Veiculos veiculo1 = conse.buscarVeiculoPorPlaca(placa);
 
-                    if (veiculo != null) {
-                        veiculos.remove(veiculo);
+                    if (veiculo1 != null) {
+                        veiculos.remove(veiculo1);
                         System.out.println("Veículo excluído com sucesso!");
                     } else {
                         System.out.println("Veículo não encontrado.");
@@ -172,4 +245,3 @@ public class Programa {
 }
       
 
-	
