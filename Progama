@@ -7,6 +7,8 @@ import entidades.Moto;
 import entidades.Veiculos;
 import entidades.Concessionaria;
 import servico2.ProcessoSeguro;
+import servico2.SemSeguro;
+import servico2.ServicoSeguroAutoYouse;
 import servico2.ServicoSeguroTokioMarine;
 
 public class Programa {
@@ -20,7 +22,7 @@ public class Programa {
         ProcessoSeguro processoSeguro = null;
 
         // Inicialização do serviço de seguro (somente um tipo por simplicidade)
-        processoSeguro = new ProcessoSeguro(new ServicoSeguroTokioMarine());
+        
 
         int opcao;
 
@@ -44,7 +46,12 @@ public class Programa {
                      System.out.println("2 - Moto");
                      System.out.print("Escolha o tipo de veículo: ");
                      int tipo = sc.nextInt();
-
+                    System.out.println("Escolha o seguro do seu Veiculo (preco anual): ");
+                    System.out.println("1-Seguro Tokyo Marine");
+                    System.out.println("2-Seguro Auto Youse"); 
+                    System.out.println("3-Sem Seguro"); 
+                    int tiposeg = sc.nextInt();
+                                                      
                      System.out.print("Placa: ");
                      String placa = sc.next();
 
@@ -56,9 +63,25 @@ public class Programa {
 
                      System.out.print("Preço: ");
                      double preco = sc.nextDouble();
-
-                     double precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
-
+                     double precoTotal = 0;
+                 
+                     if(tiposeg ==1) {
+                     processoSeguro = new ProcessoSeguro(new ServicoSeguroTokioMarine());
+                      precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
+                     }
+                     
+                     else if(tiposeg ==2) {
+                         processoSeguro = new ProcessoSeguro(new ServicoSeguroAutoYouse());
+                          precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
+                         }
+                     
+                     else if(tiposeg ==3) {
+                    	 processoSeguro = new ProcessoSeguro(new SemSeguro());
+                         precoTotal = processoSeguro.CalculoSeguroAnual(preco, ano);
+                     }
+                     
+                 
+                     
                      if (tipo == 1) {
                          System.out.print("Portas: ");
                          int portas = sc.nextInt();
@@ -150,7 +173,3 @@ public class Programa {
       
 
 	
-   
-
-    
-
