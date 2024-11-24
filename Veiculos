@@ -31,9 +31,14 @@ public abstract class Veiculos {
 	}
 	
 	
+	public void setPrecoTotal(Double precoTotal) {
+		this.precoTotal = precoTotal;
+	}
+	
 	public Double getPrecoTotal() {
 		return precoTotal;
 	}
+	
 
 	public String getPlaca() {
 		return placa;
@@ -58,6 +63,10 @@ public abstract class Veiculos {
 	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
+	
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
 
 	public Double getPreco() {
 		return preco;
@@ -67,6 +76,11 @@ public abstract class Veiculos {
 	@Override
 	public abstract String toString();
 		
+	
+	
+	
+}
+
 	
 	
 	
