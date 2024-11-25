@@ -1,5 +1,5 @@
 package entidades;
-
+//classe derivada de veiculo 
 public class Carro extends Veiculos {
 
 	private Integer portas;
