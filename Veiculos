@@ -1,7 +1,8 @@
 package entidades;
 
 public abstract class Veiculos {
-
+	//classe abstrata, não existe tipo veiculo
+	//porém todo veiculo tem esses atributos
 	protected String placa;
 	protected String marca;
 	protected Integer ano;
@@ -21,7 +22,7 @@ public abstract class Veiculos {
 	
 
 
-	// Getter e Setter para o modelo
+	// Getter e Setter 
 	public String getModelo() {
 	    return modelo;
 	}
@@ -76,11 +77,6 @@ public abstract class Veiculos {
 	@Override
 	public abstract String toString();
 		
-	
-	
-	
-}
-
 	
 	
 	
