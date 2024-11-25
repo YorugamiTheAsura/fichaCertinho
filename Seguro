@@ -1,7 +1,7 @@
 package servico2;
 
 public interface Seguro {
-
+   //interface que precisa da idade do veiculo para calcular o preço do seguro
 	 Double taxaseguroAnual(Integer idade);
 	
 }
