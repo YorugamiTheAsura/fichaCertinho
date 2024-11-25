@@ -1,7 +1,5 @@
 package servico2;
 
-import entidades.Concessionaria;
-import entidades.Veiculos;
 
 public class ProcessoSeguro {
 
@@ -11,6 +9,8 @@ public class ProcessoSeguro {
 		    this.seguro = seguro;
 		}
 	 
+	
+    //Calcula o seguro anual somado com o preço do veiculo
 	public Double CalculoSeguroAnual(Double preco,Integer idade) {
 		
 		  Double taxaAnu = seguro.taxaseguroAnual(idade);
