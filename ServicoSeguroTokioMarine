@@ -7,11 +7,11 @@ public class ServicoSeguroTokioMarine implements Seguro {
 		
 		double x = 0;
 		
-	//quanto mais velho mais propicio a quebrar
+	//quanto mais velho mais propicio a quebrar consequentemente mais caro
 		
 		if(idade>10)x = 0.3;
 		
-		else if(idade<=6 && idade>=10)x = 0.2;
+		else if(idade>=6 && idade<=10)x = 0.2;
 		
 		else if(idade<=5)x = 0.1;
 	
