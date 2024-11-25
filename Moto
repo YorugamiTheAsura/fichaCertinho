@@ -1,28 +1,28 @@
 package entidades;
 
 public class Moto extends Veiculos {
-//classe derivada de veiculos
-	private Integer cilindradas;
+	//classe derivada de veiculos
+		private Integer cilindradas;
 
-	public Moto(String placa, String marca, Integer ano, Double preco, Double precoTotal, String modelo,
-			Integer cilindradas) {
-		super(placa, marca, ano, preco, precoTotal, modelo);
-		this.cilindradas = cilindradas;
+		public Moto(String placa, String marca, Integer ano, Double preco, Double precoTotal, String modelo,
+				Integer cilindradas) {
+			super(placa, marca, ano, preco, precoTotal, modelo);
+			this.cilindradas = cilindradas;
+		}
+
+		public Integer getCilindradas() {
+			return cilindradas;
+		}
+
+		public void setCilindradas(Integer cilindradas) {
+			this.cilindradas = cilindradas;
+		}
+
+		@Override
+		public String toString() {
+		    return "Moto [Placa: " + placa + ", Marca: " + marca + ", Ano: " + ano + ", Preço: R$ " + String.format("%.2f", preco) +
+		           ", Preço Total (com seguro): R$ " + String.format("%.2f", precoTotal) + ", Modelo: " + modelo + 
+		           ", Cilindradas: " + cilindradas + "]";
+		}
+
 	}
-
-	public Integer getCilindradas() {
-		return cilindradas;
-	}
-
-	public void setCilindradas(Integer cilindradas) {
-		this.cilindradas = cilindradas;
-	}
-
-	@Override
-	public String toString() {
-		return " Moto - Placa :" + placa + " - marca : " + marca + ", - ano : " + ano + ", - preco bruto : " + preco
-				+ ", - preco total : " + precoTotal;
-
-	}
-
-}
