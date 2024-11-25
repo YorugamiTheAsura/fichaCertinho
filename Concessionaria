@@ -7,9 +7,12 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Concessionaria {
-
+     //lista que representa a CONCESSIONARIA
 	List<Veiculos> veiculos = new ArrayList<>();
 
+	
+	//getters e setters
+	
 	public Concessionaria(List<Veiculos> veiculos) {
 		this.veiculos = veiculos;
 	}
@@ -30,7 +33,7 @@ public class Concessionaria {
 		veiculos.remove(veiculo);
 	}
 
-	// valor de todos os carros da concessionaria
+	
 
 	
 	
@@ -53,7 +56,7 @@ public class Concessionaria {
 		    } else if (v1 instanceof Moto && v2 instanceof Carro) {
 		        return 1; // Indica que v1 (Moto) deve vir depois de v2 (Carro)
 		    }
-		    return 0; // Indica que a ordem relativa não muda
+		    return 0; // Indica que a ordem não deve mudar
 		    
 		});
 		
@@ -63,10 +66,10 @@ public class Concessionaria {
 	
 	
 	
-	
+	//Organiza a lista pela placa
 	
 	public void ListarVeiculosPlaca(ArrayList<Veiculos> veiculos) {
-
+                        //compara os elementos na lista(placa) e verifica se deve ou não mudar a ordem
 		Collections.sort(veiculos, Comparator.comparing(Veiculos::getPlaca));
 
 		for (Veiculos x : veiculos) {
@@ -78,9 +81,10 @@ public class Concessionaria {
 	}
 	
 	
-	
+	//busca o veiculo pela placa digitada
 	public  Veiculos buscarVeiculoPorPlaca( String placa) {
         for (Veiculos veiculo : veiculos) {
+        	     //se a placa do veiculo atual analisado é igual a digitada, retorna o veiculo em que tem essa placa 
             if (veiculo.getPlaca().equalsIgnoreCase(placa)) {
                 return veiculo;
             }
