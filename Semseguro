@@ -4,6 +4,7 @@ public class SemSeguro implements Seguro {
 
 	@Override
 	public Double taxaseguroAnual(Integer idade) {
+		//sem seguro nao tera aumento no preço
 		return 0.0;
 	}
 
