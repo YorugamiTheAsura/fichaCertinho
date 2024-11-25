@@ -1,7 +1,7 @@
 package entidades;
 
 public class Moto extends Veiculos {
-
+//classe derivada de veiculos
 	private Integer cilindradas;
 
 	public Moto(String placa, String marca, Integer ano, Double preco, Double precoTotal, String modelo,
