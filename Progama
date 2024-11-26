@@ -20,21 +20,21 @@ public class Programa {
         ArrayList<Veiculos> veiculos = new ArrayList<>();
         Concessionaria conse = new Concessionaria(veiculos);
 
-        veiculos.add(new Carro("ABC1234", "Toyota", 2020, 85000.0, 87000.0, "Corolla", 4));
-        veiculos.add(new Carro("DEF5678", "Honda", 2021, 95000.0, 97000.0, "Civic", 4));
-        veiculos.add(new Carro("GHI9012", "Chevrolet", 2019, 70000.00, 74000.00, "Onix", 2));
-        veiculos.add(new Carro("JKL3456", "Ford", 2022, 120000.0, 123000.0, "Focus", 4));
-        veiculos.add(new Carro("MNO7890", "Hyundai", 2023, 110000.0, 112000.0, "Elantra", 4));
-        veiculos.add(new Carro("PQR1122", "Nissan", 2020, 80000.0, 82000.0, "Sentra", 4));
-        veiculos.add(new Carro("STU3344", "Volkswagen", 2021, 100000.0, 102000.0, "Jetta", 4));
+        veiculos.add(new Carro("ABC1234", "Toyota", 5, 85000.0, 87000.0, "Corolla", 4));
+        veiculos.add(new Carro("DEF5678", "Honda", 1, 95000.0, 97000.0, "Civic", 4));
+        veiculos.add(new Carro("GHI9012", "Chevrolet", 2, 70000.00, 74000.00, "Onix", 2));
+        veiculos.add(new Carro("JKL3456", "Ford", 2, 120000.0, 123000.0, "Focus", 4));
+        veiculos.add(new Carro("MNO7890", "Hyundai", 8, 110000.0, 112000.0, "Elantra", 4));
+        veiculos.add(new Carro("PQR1122", "Nissan", 3, 80000.0, 82000.0, "Sentra", 4));
+        veiculos.add(new Carro("STU3344", "Volkswagen", 0, 100000.0, 102000.0, "Jetta", 4));
 
-        veiculos.add(new Moto("VWX5566", "Yamaha", 2022, 20000.0, 21000.0, "Fazer", 250));
-        veiculos.add(new Moto("YZA7788", "Honda", 2021, 18000.0, 19000.0, "CBR", 300));
-        veiculos.add(new Moto("BCD9900", "Suzuki", 2023, 25000.0, 26000.0, "GSX", 500));
-        veiculos.add(new Moto("EFG1234", "Kawasaki", 2020, 30000.0, 31000.0, "Ninja", 650));
-        veiculos.add(new Moto("HIJ5678", "Ducati", 2021, 40000.0, 42000.0, "Monster", 800));
-        veiculos.add(new Moto("KLM9012", "BMW", 2022, 50000.0, 52000.0, "S1000RR", 1000));
-        veiculos.add(new Moto("NOP3456", "Triumph", 2023, 45000.0, 47000.0, "Street Triple", 765));
+        veiculos.add(new Moto("VWX5566", "Yamaha", 4, 20000.0, 21000.0, "Fazer", 250));
+        veiculos.add(new Moto("YZA7788", "Honda", 1, 18000.0, 19000.0, "CBR", 300));
+        veiculos.add(new Moto("BCD9900", "Suzuki", 0, 25000.0, 26000.0, "GSX", 500));
+        veiculos.add(new Moto("EFG1234", "Kawasaki", 1, 30000.0, 31000.0, "Ninja", 650));
+        veiculos.add(new Moto("HIJ5678", "Ducati", 3, 40000.0, 42000.0, "Monster", 800));
+        veiculos.add(new Moto("KLM9012", "BMW", 2, 50000.0, 52000.0, "S1000RR", 1000));
+        veiculos.add(new Moto("NOP3456", "Triumph", 4, 45000.0, 47000.0, "Street Triple", 765));
         
         ProcessoSeguro processoSeguro = null;
 
@@ -270,3 +270,4 @@ public class Programa {
     }
 }
       
+    
